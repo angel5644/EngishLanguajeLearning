@@ -181,6 +181,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\database\create_database_ell.sql" />
+    <Content Include="App_Data\database\er_ell_02-12-2017.png" />
     <Content Include="App_Data\database\script_tables_ell.sql" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
