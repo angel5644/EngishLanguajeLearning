@@ -20,11 +20,13 @@ namespace ELL.Models
         /// <summary>
         /// The first name 
         /// </summary>
+        [Display(Name = "First Name")]
         public string FirstName { get; set; }
 
         /// <summary>
         /// The last name
         /// </summary>
+        [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
         /// <summary>

@@ -18,8 +18,10 @@ namespace ELL.Models
         [Key]
         public int Id { get; set; }
 
+        [Display(Name = "First Name")]
         public string FirstName { get; set; }
 
+        [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
         public string Email { get; set; }
@@ -32,6 +34,7 @@ namespace ELL.Models
         /// <summary>
         /// The date of birth of the student
         /// </summary>
+        [Display(Name = "Birth Date")]
         public DateTime BirthDate { get; set; }
 
         /// <summary>
@@ -48,6 +51,7 @@ namespace ELL.Models
         /// <summary>
         /// A reference number that will be asigned to every student
         /// </summary>
+        [Display(Name = "Reference Number")]
         public int ReferenceNumber { get; set; }
 
         /// <summary>
