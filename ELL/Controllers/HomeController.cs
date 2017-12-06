@@ -1,6 +1,9 @@
-﻿using System;
+﻿using ELL.Models;
+using ELL.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -8,8 +11,15 @@ namespace ELL.Controllers
 {
     public class HomeController : Controller
     {
+        private ParentService _parentService;
+        public HomeController()
+        {
+            _parentService = new ParentService();
+        }
+
         public ActionResult Index()
         {
+            
             return View();
         }
 
