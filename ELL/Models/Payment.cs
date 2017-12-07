@@ -20,6 +20,7 @@ namespace ELL.Models
         /// <summary>
         /// The student id (foreing key to student)
         /// </summary>
+        [Display(Name = "Student")]
         public int StudentId { get; set; }
 
         [ForeignKey("StudentId")]
@@ -28,11 +29,13 @@ namespace ELL.Models
         /// <summary>
         /// The amount of the payment
         /// </summary>
+        [Required]
         public decimal Amount { get; set; }
 
         /// <summary>
         /// The description of the payment. For example: sign up, monthly fee, etc.
         /// </summary>
+        [Required]
         public string Description { get; set; }
     }
 }

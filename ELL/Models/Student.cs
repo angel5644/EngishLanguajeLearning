@@ -18,9 +18,11 @@ namespace ELL.Models
         [Key]
         public int Id { get; set; }
 
+        [Required]
         [Display(Name = "First Name")]
         public string FirstName { get; set; }
 
+        [Required]
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
@@ -51,15 +53,24 @@ namespace ELL.Models
         /// <summary>
         /// A reference number that will be asigned to every student
         /// </summary>
+        [Required]
         [Display(Name = "Reference Number")]
         public int ReferenceNumber { get; set; }
 
         /// <summary>
         /// The parent id (foreing key to parent)
         /// </summary>
+        [Required]
+        [Display(Name = "Parent")]
         public int ParentId { get; set; }
 
         [ForeignKey("ParentId")]
         public virtual Parent Parent { get; set; }
+
+        [NotMapped]
+        public string FullName
+        {
+            get { return this.FirstName + " " + this.LastName; }
+        }
     }
 }

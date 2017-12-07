@@ -7,6 +7,9 @@ using System.Web;
 
 namespace ELL.Models
 {
+    /// <summary>
+    /// The emergency contact of the student
+    /// </summary>
     [Table("Parent")]
     public class Parent
     {
@@ -21,17 +24,20 @@ namespace ELL.Models
         /// The first name 
         /// </summary>
         [Display(Name = "First Name")]
+        [Required]
         public string FirstName { get; set; }
 
         /// <summary>
         /// The last name
         /// </summary>
         [Display(Name = "Last Name")]
+        [Required]
         public string LastName { get; set; }
 
         /// <summary>
         /// The phone number
         /// </summary>
+        [Required]
         public string Phone { get; set; }
     }
 }
