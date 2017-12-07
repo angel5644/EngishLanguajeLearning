@@ -9,17 +9,23 @@ using System.Web;
 using System.Web.Mvc;
 using ELL.Models;
 using ELL.DBContext;
+using ELL.Services;
 
 namespace ELL.Controllers
 {
     public class ParentsController : Controller
     {
-        private ELLDBContext db = new ELLDBContext();
+        private ParentService _parentService;
+
+        public ParentsController()
+        {
+            _parentService = new ParentService();
+        }
 
         // GET: Parents
         public async Task<ActionResult> Index()
         {
-            var parents = await db.Parents.ToListAsync();
+            var parents = await _parentService.GetAll();
 
             return View(parents);
         }
@@ -31,11 +37,14 @@ namespace ELL.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Parent parent = await db.Parents.FindAsync(id);
+
+            Parent parent = await _parentService.Get(id.Value);
+
             if (parent == null)
             {
                 return HttpNotFound();
             }
+
             return View(parent);
         }
 
@@ -53,9 +62,9 @@ namespace ELL.Controllers
         public async Task<ActionResult> Create([Bind(Include = "Id,FirstName,LastName,Phone")] Parent parent)
         {
             if (ModelState.IsValid)
-            {
-                db.Parents.Add(parent);
-                await db.SaveChangesAsync();
+            { 
+                await _parentService.Create(parent);
+
                 return RedirectToAction("Index");
             }
 
@@ -69,7 +78,9 @@ namespace ELL.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Parent parent = await db.Parents.FindAsync(id);
+
+            Parent parent = await _parentService.Get(id.Value);
+
             if (parent == null)
             {
                 return HttpNotFound();
@@ -86,8 +97,8 @@ namespace ELL.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(parent).State = EntityState.Modified;
-                await db.SaveChangesAsync();
+                await _parentService.Update(parent);
+
                 return RedirectToAction("Index");
             }
             return View(parent);
@@ -100,7 +111,7 @@ namespace ELL.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Parent parent = await db.Parents.FindAsync(id);
+            Parent parent = await _parentService.Get(id.Value);
             if (parent == null)
             {
                 return HttpNotFound();
@@ -113,18 +124,15 @@ namespace ELL.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            Parent parent = await db.Parents.FindAsync(id);
-            db.Parents.Remove(parent);
-            await db.SaveChangesAsync();
+            Parent parent = await _parentService.Get(id);
+
+            await _parentService.Delete(parent.Id);
+
             return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)
         {
-            if (disposing)
-            {
-                db.Dispose();
-            }
             base.Dispose(disposing);
         }
     }

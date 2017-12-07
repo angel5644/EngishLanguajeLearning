@@ -9,18 +9,28 @@ using System.Web;
 using System.Web.Mvc;
 using ELL.DBContext;
 using ELL.Models;
+using ELL.Services;
 
 namespace ELL.Controllers
 {
     public class PaymentsController : Controller
     {
         private ELLDBContext db = new ELLDBContext();
+        private PaymentService _paymentService;
+        private StudentService _studentService;
+
+        public PaymentsController()
+        {
+            _paymentService = new PaymentService();
+            _studentService = new StudentService();
+        }
 
         // GET: Payments
         public async Task<ActionResult> Index()
         {
-            var payments = db.Payments.Include(p => p.Student);
-            return View(await payments.ToListAsync());
+            var payments = await _paymentService.GetALlIncludeStudent();
+
+            return View(payments);
         }
 
         // GET: Payments/Details/5
@@ -30,7 +40,9 @@ namespace ELL.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Payment payment = await db.Payments.FindAsync(id);
+
+            Payment payment = await _paymentService.Get(id.Value);
+
             if (payment == null)
             {
                 return HttpNotFound();
@@ -39,9 +51,12 @@ namespace ELL.Controllers
         }
 
         // GET: Payments/Create
-        public ActionResult Create()
+        public async Task<ActionResult> Create()
         {
             ViewBag.StudentId = new SelectList(db.Students, "Id", "FirstName");
+
+            var students = await _studentService.GetAll();
+
             return View();
         }
 

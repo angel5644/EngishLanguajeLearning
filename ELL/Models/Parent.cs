@@ -39,5 +39,11 @@ namespace ELL.Models
         /// </summary>
         [Required]
         public string Phone { get; set; }
+
+        [NotMapped]
+        public string FullName
+        {
+            get { return this.FirstName + " " + this.LastName; }
+        }
     }
 }

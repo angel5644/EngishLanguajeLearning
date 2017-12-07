@@ -46,8 +46,9 @@ namespace ELL.Models
         public Gender Gender { get; set; }
 
         /// <summary>
-        /// The phone number
+        /// The phone number of the student or the emergency contact
         /// </summary>
+        [Required]
         public string Phone { get; set; }
 
         /// <summary>
@@ -61,7 +62,7 @@ namespace ELL.Models
         /// The parent id (foreing key to parent)
         /// </summary>
         [Required]
-        [Display(Name = "Parent")]
+        [Display(Name = "Emergency Contact")]
         public int ParentId { get; set; }
 
         [ForeignKey("ParentId")]

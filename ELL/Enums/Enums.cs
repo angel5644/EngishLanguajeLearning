@@ -10,10 +10,10 @@ namespace ELL.Enums
     {
         public enum Gender
         {
-            Male = 0,
-            Female = 1,
             [Display(Name = "Not Specified")]
-            NotSpecified = 2
+            NotSpecified = 0,
+            Female = 1,
+            Male = 2,
         }
     }
 }

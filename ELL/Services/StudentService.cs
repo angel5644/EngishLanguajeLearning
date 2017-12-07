@@ -10,14 +10,14 @@ using ELL.Services;
 
 namespace ELL.Services
 {
-    public class ParentService : ServiceBase<Parent>
+    public class StudentService : ServiceBase<Student>
     {
-        public ParentService() : base()
+        public StudentService() : base()
         {
 
         }
 
-        public ParentService(ELLDBContext dbContext) : base(dbContext)
+        public StudentService(ELLDBContext dbContext) : base(dbContext)
         {
 
         }

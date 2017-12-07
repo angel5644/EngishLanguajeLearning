@@ -39,14 +39,9 @@
                         @Html.DisplayFor(modelItem => item.Description)
                     </td>
                     <td>
-                        @*@Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })*@
-
-                        <a href="@Url.Action("Edit", "Edit", new { id = item.Id })" class="btn btn-default" title="Edit"><i class="fa fa-pencil-square-o fa-lg"></i></a>
-                        <a href="@Url.Action("Details", "Details", new { id = item.Id })" class="btn btn-default" title="Details">   <i class="fa fa-list fa-lg"></i></a>
-                        <a href="@Url.Action("Delete", "Delete", new { id = item.Id })" class="btn btn-default" title="Delete">   <i class="fa fa-trash-o fa-lg"></i></a>
-                        
+                        <a href="@Url.Action("Edit", "Payments", new { id = item.Id })" class="btn btn-default" title="Edit"><i class="fa fa-pencil-square-o fa-lg"></i></a>
+                        <a href="@Url.Action("Details", "Payments", new { id = item.Id })" class="btn btn-default" title="Details">   <i class="fa fa-list fa-lg"></i></a>
+                        <a href="@Url.Action("Delete", "Payments", new { id = item.Id })" class="btn btn-default" title="Delete">   <i class="fa fa-trash-o fa-lg"></i></a>                        
                     </td>
                 </tr>
             }
