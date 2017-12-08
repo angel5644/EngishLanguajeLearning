@@ -17,7 +17,6 @@ namespace ELL.Controllers
 {
     public class PaymentsController : ELLBaseController
     {
-        private ELLDBContext db = new ELLDBContext();
         private PaymentService _paymentService;
         private StudentService _studentService;
 
@@ -188,10 +187,6 @@ namespace ELL.Controllers
 
         protected override void Dispose(bool disposing)
         {
-            if (disposing)
-            {
-                db.Dispose();
-            }
             base.Dispose(disposing);
         }
     }

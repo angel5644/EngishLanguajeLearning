@@ -212,6 +212,7 @@
     <Compile Include="Services\ParentService.cs" />
     <Compile Include="Services\ServiceBase.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\EmergencyContacts\CreateEmergencyContactVM.cs" />
     <Compile Include="ViewModels\Payments\CreatePaymentVM.cs" />
     <Compile Include="ViewModels\Students\CreateStudentVM.cs" />
   </ItemGroup>
@@ -223,6 +224,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\dataTables.bootstrap.min.css" />
     <Content Include="Content\responsive.dataTables.min.css" />
+    <Content Include="images\logos\ell_logo.jpg" />
     <Content Include="Scripts\students\students.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -310,9 +312,7 @@
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModels\EmergencyContacts\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

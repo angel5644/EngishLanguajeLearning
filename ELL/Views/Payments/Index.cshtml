@@ -21,6 +21,9 @@
                     @Html.DisplayNameFor(model => model.Amount)
                 </th>
                 <th>
+                    @Html.DisplayNameFor(model => model.Type)
+                </th>
+                <th>
                     @Html.DisplayNameFor(model => model.Description)
                 </th>
                 <th></th>
@@ -34,6 +37,9 @@
                     </td>
                     <td>
                         @item.Amount.ToString("C")
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Type)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Description)

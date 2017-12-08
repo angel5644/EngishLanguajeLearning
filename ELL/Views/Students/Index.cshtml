@@ -74,7 +74,7 @@
                             @Html.DisplayFor(modelItem => item.ReferenceNumber)
                         </td>
                         <td>
-                            @Html.ActionLink(item.Parent.FullName, "Details", "Parents", new { id = item.ParentId }, new { @class = "" })
+                            @Html.ActionLink(item.EmergencyContact.FullName, "Details", "EmergencyContacts", new { id = item.EmergencyContactId }, new { @class = "" })
                         </td>
                         <td>
                             <a href="@Url.Action("Edit", "Students", new { id = item.Id })" class="btn btn-default" title="Edit"><i class="fa fa-pencil-square-o fa-lg"></i></a>

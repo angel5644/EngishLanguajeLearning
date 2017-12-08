@@ -25,6 +25,7 @@ namespace ELL.Models
         /// </summary>
         [Display(Name = "First Name")]
         [Required]
+        [StringLength(500)]
         public string FirstName { get; set; }
 
         /// <summary>
@@ -32,12 +33,14 @@ namespace ELL.Models
         /// </summary>
         [Display(Name = "Last Name")]
         [Required]
+        [StringLength(500)]
         public string LastName { get; set; }
 
         /// <summary>
         /// The phone number
         /// </summary>
         [Required]
+        [StringLength(50)]
         public string Phone { get; set; }
 
         [NotMapped]

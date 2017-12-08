@@ -36,6 +36,7 @@ namespace ELL.Models
         /// <summary>
         /// The payment type. See <see cref="ELL.Enums.Enums.PaymentType"/>
         /// </summary>
+        [Required]
         public PaymentType Type { get; set; }
 
         /// <summary>

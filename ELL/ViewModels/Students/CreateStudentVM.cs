@@ -60,7 +60,7 @@ namespace ELL.ViewModels.Students
         public string Phone { get; set; }
 
         /// <summary>
-        /// A reference number that will be asigned to every student
+        /// A unique reference number that will be asigned to every student
         /// </summary>
         [Required]
         [Display(Name = "Reference Number")]

@@ -27,6 +27,7 @@ namespace ELL.Enums
         public enum PaymentType
         {
             Registration = 0,
+            [Display(Name = "Monthly Payment")]
             MonthlyPayment = 1,
             Other = 2
         }

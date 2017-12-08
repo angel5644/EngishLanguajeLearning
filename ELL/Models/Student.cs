@@ -20,10 +20,12 @@ namespace ELL.Models
 
         [Required]
         [Display(Name = "First Name")]
+        [StringLength(500)]
         public string FirstName { get; set; }
 
         [Required]
         [Display(Name = "Last Name")]
+        [StringLength(500)]
         public string LastName { get; set; }
 
         /// <summary>
@@ -35,6 +37,8 @@ namespace ELL.Models
         /// <summary>
         /// Student email
         /// </summary>
+        [Index(IsUnique = true)]
+        [StringLength(255)]
         public string Email { get; set; }
 
         /// <summary>
@@ -58,12 +62,14 @@ namespace ELL.Models
         /// The phone number of the student or the emergency contact
         /// </summary>
         [Required]
+        [StringLength(50)]
         public string Phone { get; set; }
 
         /// <summary>
-        /// A reference number that will be asigned to every student
+        /// A unique reference number that will be asigned to every student
         /// </summary>
         [Required]
+        [Index(IsUnique = true)]
         [Display(Name = "Reference Number")]
         public int ReferenceNumber { get; set; }
 
