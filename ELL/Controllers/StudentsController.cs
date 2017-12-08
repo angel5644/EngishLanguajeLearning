@@ -19,7 +19,7 @@ namespace ELL.Controllers
         // GET: Students
         public async Task<ActionResult> Index()
         {
-            var students = db.Students.Include(s => s.Parent);
+            var students = db.Students.Include(s => s.EmergencyContact);
             return View(await students.ToListAsync());
         }
 
@@ -41,7 +41,7 @@ namespace ELL.Controllers
         // GET: Students/Create
         public ActionResult Create()
         {
-            ViewBag.ParentId = new SelectList(db.Parents, "Id", "FirstName");
+            ViewBag.ParentId = new SelectList(db.EmergencyContacts, "Id", "FirstName");
             return View();
         }
 
@@ -59,7 +59,7 @@ namespace ELL.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ParentId = new SelectList(db.Parents, "Id", "FirstName", student.ParentId);
+            ViewBag.ParentId = new SelectList(db.EmergencyContacts, "Id", "FirstName", student.EmergencyContactId);
             return View(student);
         }
 
@@ -75,7 +75,7 @@ namespace ELL.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.ParentId = new SelectList(db.Parents, "Id", "FirstName", student.ParentId);
+            ViewBag.ParentId = new SelectList(db.EmergencyContacts, "Id", "FirstName", student.EmergencyContactId);
             return View(student);
         }
 
@@ -92,7 +92,7 @@ namespace ELL.Controllers
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            ViewBag.ParentId = new SelectList(db.Parents, "Id", "FirstName", student.ParentId);
+            ViewBag.ParentId = new SelectList(db.EmergencyContacts, "Id", "FirstName", student.EmergencyContactId);
             return View(student);
         }
 

@@ -9,7 +9,7 @@ using System.Web.Mvc;
 using ELL.DBContext;
 using ELL.Models;
 using ELL.Services;
-using ELL.ViewModels.Payment;
+using ELL.ViewModels.Payments;
 using AutoMapper;
 using FXWell.Core;
 

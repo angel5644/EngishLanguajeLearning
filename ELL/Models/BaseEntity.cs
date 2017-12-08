@@ -5,6 +5,9 @@ using System.Web;
 
 namespace ELL.Models
 {
+    /// <summary>
+    /// Defines the base properties of the entity. Like DateCreated, UserCreated, DateUpdated and UserUpdated.
+    /// </summary>
     public class BaseEntity
     {
         /// <summary>

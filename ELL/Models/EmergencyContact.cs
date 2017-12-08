@@ -10,11 +10,11 @@ namespace ELL.Models
     /// <summary>
     /// The emergency contact of the student
     /// </summary>
-    [Table("Parent")]
-    public class Parent : BaseEntity
+    [Table("EmergencyContact")]
+    public class EmergencyContact : BaseEntity
     {
         /// <summary>
-        /// The parent id
+        /// The contact id
         /// </summary>
         [Required]
         [Key]

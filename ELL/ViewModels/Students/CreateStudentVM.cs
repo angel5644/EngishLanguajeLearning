@@ -1,21 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 using static ELL.Enums.Enums;
 
-namespace ELL.Models
+namespace ELL.ViewModels.Students
 {
-    [Table("Student")]
-    public class Student : BaseEntity
+    [NotMapped]
+    public class CreateStudentVM
     {
         /// <summary>
         /// The student id
         /// </summary>
         [Required]
-        [Key]
         public int Id { get; set; }
 
         [Required]
@@ -72,10 +71,9 @@ namespace ELL.Models
         /// </summary>
         [Required]
         [Display(Name = "Emergency Contact")]
-        public int EmergencyContactId { get; set; }
+        public int ParentId { get; set; }
 
-        [ForeignKey("EmergencyContactId")]
-        public virtual EmergencyContact EmergencyContact { get; set; }
+        public SelectList EmergencyContacts { get; set; }
 
         [NotMapped]
         public string FullName

@@ -10,7 +10,7 @@ using ELL.Services;
 
 namespace ELL.Services
 {
-    public class ParentService : ServiceBase<Parent>
+    public class ParentService : ServiceBase<EmergencyContact>
     {
         public ParentService() : base()
         {

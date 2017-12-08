@@ -176,7 +176,7 @@
     <Compile Include="Controllers\ELLBaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\ParentsController.cs" />
+    <Compile Include="Controllers\EmergencyContactsController.cs" />
     <Compile Include="Controllers\PaymentsController.cs" />
     <Compile Include="Controllers\StudentsController.cs" />
     <Compile Include="Core\AutoMapperWebConfiguration.cs" />
@@ -202,7 +202,7 @@
     <Compile Include="Models\Globals\Formats.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\Parent.cs" />
+    <Compile Include="Models\EmergencyContact.cs" />
     <Compile Include="Models\Payment.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -212,7 +212,8 @@
     <Compile Include="Services\ParentService.cs" />
     <Compile Include="Services\ServiceBase.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="ViewModels\Payment\CreatePaymentVM.cs" />
+    <Compile Include="ViewModels\Payments\CreatePaymentVM.cs" />
+    <Compile Include="ViewModels\Students\CreateStudentVM.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\database\create_database_ell.sql" />
@@ -276,11 +277,11 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Parents\Create.cshtml" />
-    <Content Include="Views\Parents\Delete.cshtml" />
-    <Content Include="Views\Parents\Details.cshtml" />
-    <Content Include="Views\Parents\Edit.cshtml" />
-    <Content Include="Views\Parents\Index.cshtml" />
+    <Content Include="Views\EmergencyContacts\Create.cshtml" />
+    <Content Include="Views\EmergencyContacts\Delete.cshtml" />
+    <Content Include="Views\EmergencyContacts\Details.cshtml" />
+    <Content Include="Views\EmergencyContacts\Edit.cshtml" />
+    <Content Include="Views\EmergencyContacts\Index.cshtml" />
     <Content Include="Views\Payments\Create.cshtml" />
     <Content Include="Views\Payments\Delete.cshtml" />
     <Content Include="Views\Payments\Details.cshtml" />
@@ -308,6 +309,9 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ViewModels\EmergencyContacts\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

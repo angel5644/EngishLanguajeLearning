@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Web;
+using static ELL.Enums.Enums;
 
 namespace ELL.Models
 {
@@ -36,9 +34,16 @@ namespace ELL.Models
         public decimal Amount { get; set; }
 
         /// <summary>
+        /// The payment type. See <see cref="ELL.Enums.Enums.PaymentType"/>
+        /// </summary>
+        public PaymentType Type { get; set; }
+
+        /// <summary>
         /// The description of the payment. For example: sign up, monthly fee, etc.
         /// </summary>
         [Required]
         public string Description { get; set; }
     }
+
+    
 }

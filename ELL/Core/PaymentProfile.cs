@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using ELL.Models;
-using ELL.ViewModels.Payment;
+using ELL.ViewModels.Payments;
 using System;
 using System.Collections.Generic;
 using System.Linq;

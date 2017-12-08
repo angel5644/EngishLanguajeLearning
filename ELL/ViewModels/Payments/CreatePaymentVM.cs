@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Web;
+﻿using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
 
-namespace ELL.ViewModels.Payment
+namespace ELL.ViewModels.Payments
 {
     public class CreatePaymentVM
     {
@@ -22,11 +17,8 @@ namespace ELL.ViewModels.Payment
         [Display(Name = "Student")]
         public int StudentId { get; set; }
 
-        //[ForeignKey("StudentId")]
-        //public virtual Student Student { get; set; }
         public SelectList Students { get; set; }
         
-
         /// <summary>
         /// The amount of the payment
         /// </summary>

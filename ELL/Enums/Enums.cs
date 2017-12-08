@@ -23,5 +23,12 @@ namespace ELL.Enums
             Warning,
             Error
         }
+
+        public enum PaymentType
+        {
+            Registration = 0,
+            MonthlyPayment = 1,
+            Other = 2
+        }
     }
 }

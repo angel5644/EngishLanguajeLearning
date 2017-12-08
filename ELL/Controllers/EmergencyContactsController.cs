@@ -13,24 +13,24 @@ using ELL.Services;
 
 namespace ELL.Controllers
 {
-    public class ParentsController : Controller
+    public class EmergencyContactsController : Controller
     {
         private ParentService _parentService;
 
-        public ParentsController()
+        public EmergencyContactsController()
         {
             _parentService = new ParentService();
         }
 
-        // GET: Parents
+        // GET: EmergencyContacts
         public async Task<ActionResult> Index()
         {
-            var parents = await _parentService.GetAll();
+            var emergencyContacts = await _parentService.GetAll();
 
-            return View(parents);
+            return View(emergencyContacts);
         }
 
-        // GET: Parents/Details/5
+        // GET: EmergencyContacts/Details/5
         public async Task<ActionResult> Details(int? id)
         {
             if (id == null)
@@ -38,40 +38,40 @@ namespace ELL.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            Parent parent = await _parentService.Get(id.Value);
+            EmergencyContact contact = await _parentService.Get(id.Value);
 
-            if (parent == null)
+            if (contact == null)
             {
                 return HttpNotFound();
             }
 
-            return View(parent);
+            return View(contact);
         }
 
-        // GET: Parents/Create
+        // GET: EmergencyContacts/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Parents/Create
+        // POST: EmergencyContacts/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,FirstName,LastName,Phone")] Parent parent)
+        public async Task<ActionResult> Create([Bind(Include = "Id,FirstName,LastName,Phone")] EmergencyContact contact)
         {
             if (ModelState.IsValid)
             { 
-                await _parentService.Create(parent);
+                await _parentService.Create(contact);
 
                 return RedirectToAction("Index");
             }
 
-            return View(parent);
+            return View(contact);
         }
 
-        // GET: Parents/Edit/5
+        // GET: EmergencyContacts/Edit/5
         public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
@@ -79,54 +79,54 @@ namespace ELL.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            Parent parent = await _parentService.Get(id.Value);
+            EmergencyContact contact = await _parentService.Get(id.Value);
 
-            if (parent == null)
+            if (contact == null)
             {
                 return HttpNotFound();
             }
-            return View(parent);
+            return View(contact);
         }
 
-        // POST: Parents/Edit/5
+        // POST: EmergencyContacts/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,FirstName,LastName,Phone")] Parent parent)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,FirstName,LastName,Phone")] EmergencyContact contact)
         {
             if (ModelState.IsValid)
             {
-                await _parentService.Update(parent);
+                await _parentService.Update(contact);
 
                 return RedirectToAction("Index");
             }
-            return View(parent);
+            return View(contact);
         }
 
-        // GET: Parents/Delete/5
+        // GET: EmergencyContacts/Delete/5
         public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Parent parent = await _parentService.Get(id.Value);
-            if (parent == null)
+            EmergencyContact contact = await _parentService.Get(id.Value);
+            if (contact == null)
             {
                 return HttpNotFound();
             }
-            return View(parent);
+            return View(contact);
         }
 
-        // POST: Parents/Delete/5
+        // POST: EmergencyContacts/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            Parent parent = await _parentService.Get(id);
+            EmergencyContact contact = await _parentService.Get(id);
 
-            await _parentService.Delete(parent.Id);
+            await _parentService.Delete(contact.Id);
 
             return RedirectToAction("Index");
         }
