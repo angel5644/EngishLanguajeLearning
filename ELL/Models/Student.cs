@@ -9,7 +9,7 @@ using static ELL.Enums.Enums;
 namespace ELL.Models
 {
     [Table("Student")]
-    public class Student
+    public class Student : BaseEntity
     {
         /// <summary>
         /// The student id
@@ -26,6 +26,15 @@ namespace ELL.Models
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
+        /// <summary>
+        /// Monthly payment of the student
+        /// </summary>
+        [Required]
+        public decimal MonthlyPayment { get; set; }
+
+        /// <summary>
+        /// Student email
+        /// </summary>
         public string Email { get; set; }
 
         /// <summary>

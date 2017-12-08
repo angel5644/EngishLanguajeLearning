@@ -1,0 +1,16 @@
+﻿<div class="row">
+    <div class="col-md-12">
+        @foreach (string key in ELL.Models.Globals.Alerts.ALL)
+        {
+            if (TempData.ContainsKey(key))
+            {
+                <br />
+                <div class="alert alert-@key">
+                    <button type="button" class="close" data-dismiss="alert">x</button>
+                    @TempData[key]
+                </div>
+            }
+        }
+    </div>
+</div>
+

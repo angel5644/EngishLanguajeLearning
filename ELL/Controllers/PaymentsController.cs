@@ -5,15 +5,17 @@ using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using ELL.DBContext;
 using ELL.Models;
 using ELL.Services;
+using ELL.ViewModels.Payment;
+using AutoMapper;
+using FXWell.Core;
 
 namespace ELL.Controllers
 {
-    public class PaymentsController : Controller
+    public class PaymentsController : ELLBaseController
     {
         private ELLDBContext db = new ELLDBContext();
         private PaymentService _paymentService;
@@ -53,11 +55,16 @@ namespace ELL.Controllers
         // GET: Payments/Create
         public async Task<ActionResult> Create()
         {
-            ViewBag.StudentId = new SelectList(db.Students, "Id", "FirstName");
+            CreatePaymentVM model = new CreatePaymentVM();
 
-            var students = await _studentService.GetAll();
+            var students = (await _studentService.GetAll()).Select(s => new
+            {
+                Id = s.Id,
+                FullName = s.FullName
+            });
+            model.Students = new SelectList(students, "Id", "FullName");
 
-            return View();
+            return View(model);
         }
 
         // POST: Payments/Create
@@ -65,17 +72,27 @@ namespace ELL.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,StudentId,Amount,Description")] Payment payment)
+        public async Task<ActionResult> Create([Bind(Include = "Id,StudentId,Amount,Description")] CreatePaymentVM paymentVM)
         {
             if (ModelState.IsValid)
             {
-                db.Payments.Add(payment);
-                await db.SaveChangesAsync();
+                Payment newPayment = Mapper.Map<CreatePaymentVM, Payment>(paymentVM);
+
+                await _paymentService.Create(newPayment);
+
+                Success("Payment was added successfully");
+                
                 return RedirectToAction("Index");
             }
 
-            ViewBag.StudentId = new SelectList(db.Students, "Id", "FirstName", payment.StudentId);
-            return View(payment);
+            var students = (await _studentService.GetAll()).Select(s => new
+            {
+                Id = s.Id,
+                FullName = s.FullName
+            });
+            paymentVM.Students = new SelectList(students, "Id", "FullName");
+
+            return View(paymentVM);
         }
 
         // GET: Payments/Edit/5
@@ -85,13 +102,26 @@ namespace ELL.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Payment payment = await db.Payments.FindAsync(id);
+
+            // Get payment by id
+            Payment payment = await _paymentService.Get(id.Value);
+
             if (payment == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.StudentId = new SelectList(db.Students, "Id", "FirstName", payment.StudentId);
-            return View(payment);
+
+            // Map payment to view model
+            CreatePaymentVM paymentVM = Mapper.Map<Payment, CreatePaymentVM>(payment);
+
+            var students = (await _studentService.GetAll()).Select(s => new
+            {
+                Id = s.Id,
+                FullName = s.FullName
+            });
+            paymentVM.Students = new SelectList(students, "Id", "FullName", payment.StudentId);
+
+            return View(paymentVM);
         }
 
         // POST: Payments/Edit/5
@@ -99,16 +129,29 @@ namespace ELL.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,StudentId,Amount,Description")] Payment payment)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,StudentId,Amount,Description")] CreatePaymentVM paymentVM)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(payment).State = EntityState.Modified;
-                await db.SaveChangesAsync();
+                // Map from view model to entity
+                Payment paymentUpdate = Mapper.Map<CreatePaymentVM, Payment>(paymentVM);
+
+                // Update payment
+                await _paymentService.Update(paymentUpdate);
+
+                // Set success message
+                Success("Payment was updated successfully");
+
                 return RedirectToAction("Index");
             }
-            ViewBag.StudentId = new SelectList(db.Students, "Id", "FirstName", payment.StudentId);
-            return View(payment);
+            var students = (await _studentService.GetAll()).Select(s => new
+            {
+                Id = s.Id,
+                FullName = s.FullName
+            });
+            paymentVM.Students = new SelectList(students, "Id", "FullName", paymentVM.StudentId);
+
+            return View(paymentVM);
         }
 
         // GET: Payments/Delete/5
@@ -118,11 +161,14 @@ namespace ELL.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Payment payment = await db.Payments.FindAsync(id);
+
+            Payment payment = await _paymentService.Get(id.Value);
+
             if (payment == null)
             {
                 return HttpNotFound();
             }
+
             return View(payment);
         }
 
@@ -131,9 +177,12 @@ namespace ELL.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            Payment payment = await db.Payments.FindAsync(id);
-            db.Payments.Remove(payment);
-            await db.SaveChangesAsync();
+            Payment payment = await _paymentService.Get(id);
+            await _paymentService.Delete(payment.Id);
+
+            // Message
+            Success("Payment was deleted successfully");
+
             return RedirectToAction("Index");
         }
 

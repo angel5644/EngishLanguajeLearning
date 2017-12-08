@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace ELL.ViewModels.Payment
 {
@@ -23,7 +24,7 @@ namespace ELL.ViewModels.Payment
 
         //[ForeignKey("StudentId")]
         //public virtual Student Student { get; set; }
-
+        public SelectList Students { get; set; }
         
 
         /// <summary>

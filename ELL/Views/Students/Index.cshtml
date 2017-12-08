@@ -62,7 +62,7 @@
                             @Html.DisplayFor(modelItem => item.Picture)
                         </td>
                         <td>
-                            @item.BirthDate.Date.ToString(ELL.Models.Globals.DateFormatDDMMYYY)
+                            @item.BirthDate.Date.ToString(ELL.Models.Globals.Formats.DateFormatDDMMYYY)
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Gender)
@@ -77,9 +77,9 @@
                             @Html.ActionLink(item.Parent.FullName, "Details", "Parents", new { id = item.ParentId }, new { @class = "" })
                         </td>
                         <td>
-                            <a href="@Url.Action("Edit", "Parents", new { id = item.Id })" class="btn btn-default" title="Edit"><i class="fa fa-pencil-square-o fa-lg"></i></a>
-                            <a href="@Url.Action("Details", "Parents", new { id = item.Id })" class="btn btn-default" title="Details">   <i class="fa fa-list fa-lg"></i></a>
-                            <a href="@Url.Action("Delete", "Parents", new { id = item.Id })" class="btn btn-default" title="Delete">   <i class="fa fa-trash-o fa-lg"></i></a>
+                            <a href="@Url.Action("Edit", "Students", new { id = item.Id })" class="btn btn-default" title="Edit"><i class="fa fa-pencil-square-o fa-lg"></i></a>
+                            <a href="@Url.Action("Details", "Students", new { id = item.Id })" class="btn btn-default" title="Details">   <i class="fa fa-list fa-lg"></i></a>
+                            <a href="@Url.Action("Delete", "Students", new { id = item.Id })" class="btn btn-default" title="Delete">   <i class="fa fa-trash-o fa-lg"></i></a>
                         </td>
                     </tr>
                 }

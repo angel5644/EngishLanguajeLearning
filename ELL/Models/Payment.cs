@@ -8,7 +8,7 @@ using System.Web;
 namespace ELL.Models
 {
     [Table("Payment")]
-    public class Payment
+    public class Payment : BaseEntity
     {
         /// <summary>
         /// The payment id
@@ -25,6 +25,9 @@ namespace ELL.Models
 
         [ForeignKey("StudentId")]
         public virtual Student Student { get; set; }
+
+        [Required]
+        public DateTime Date { get; set; }
 
         /// <summary>
         /// The amount of the payment

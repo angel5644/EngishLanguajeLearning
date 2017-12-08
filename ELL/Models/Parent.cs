@@ -11,7 +11,7 @@ namespace ELL.Models
     /// The emergency contact of the student
     /// </summary>
     [Table("Parent")]
-    public class Parent
+    public class Parent : BaseEntity
     {
         /// <summary>
         /// The parent id

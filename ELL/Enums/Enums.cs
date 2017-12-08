@@ -15,5 +15,13 @@ namespace ELL.Enums
             Female = 1,
             Male = 2,
         }
+
+        public enum ELLLogType
+        {
+            Debug,
+            Information,
+            Warning,
+            Error
+        }
     }
 }
