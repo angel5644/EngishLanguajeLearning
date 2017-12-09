@@ -25,7 +25,8 @@ namespace ELL.Models
         /// </summary>
         [Display(Name = "First Name")]
         [Required]
-        [StringLength(500)]
+        [StringLength(255)]
+        [Index]
         public string FirstName { get; set; }
 
         /// <summary>
@@ -33,7 +34,8 @@ namespace ELL.Models
         /// </summary>
         [Display(Name = "Last Name")]
         [Required]
-        [StringLength(500)]
+        [StringLength(255)]
+        [Index]
         public string LastName { get; set; }
 
         /// <summary>

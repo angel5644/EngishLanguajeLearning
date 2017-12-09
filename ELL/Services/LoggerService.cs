@@ -5,7 +5,7 @@ using System.Data.Entity;
 using System.Diagnostics;
 using static ELL.Enums.Enums;
 
-namespace FXWell.Service
+namespace ELL.Services
 {
     public class LoggerService 
     {

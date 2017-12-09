@@ -11,7 +11,6 @@ using ELL.Models;
 using ELL.Services;
 using ELL.ViewModels.Payments;
 using AutoMapper;
-using FXWell.Core;
 
 namespace ELL.Controllers
 {
@@ -62,6 +61,7 @@ namespace ELL.Controllers
                 FullName = s.FullName
             });
             model.Students = new SelectList(students, "Id", "FullName");
+            model.Date = DateTime.UtcNow;
 
             return View(model);
         }

@@ -24,6 +24,7 @@ namespace ELL.ViewModels.Payments
         public SelectList Students { get; set; }
 
         [Required]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime Date { get; set; }
 
         /// <summary>

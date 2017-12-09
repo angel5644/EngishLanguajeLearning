@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Web.Mvc;
-using FXWell.Service;
 using ELL.Models.Globals;
+using ELL.Services;
 
-namespace FXWell.Core
+namespace ELL.Controllers
 {
     public class ELLBaseController : Controller
     {

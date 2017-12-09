@@ -13,7 +13,7 @@ using ELL.Services;
 
 namespace ELL.Controllers
 {
-    public class EmergencyContactsController : Controller
+    public class EmergencyContactsController : ELLBaseController
     {
         private ParentService _parentService;
 
@@ -65,6 +65,8 @@ namespace ELL.Controllers
             { 
                 await _parentService.Create(contact);
 
+                Success("Contact was added successfully");
+
                 return RedirectToAction("Index");
             }
 
@@ -99,6 +101,8 @@ namespace ELL.Controllers
             {
                 await _parentService.Update(contact);
 
+                Success("Contact was updated successfully");
+
                 return RedirectToAction("Index");
             }
             return View(contact);
@@ -127,6 +131,8 @@ namespace ELL.Controllers
             EmergencyContact contact = await _parentService.Get(id);
 
             await _parentService.Delete(contact.Id);
+
+            Success("Contact was deleted successfully");
 
             return RedirectToAction("Index");
         }

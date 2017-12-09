@@ -15,7 +15,10 @@
         <table class="table table-bordered">
             <tr>
                 <th>
-                    @Html.Display("Student")
+                    Student
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Date)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Amount)
@@ -34,6 +37,9 @@
                 <tr>
                     <td>
                         @Html.ActionLink(item.Student.FullName, "Details", "Students", new { id = item.StudentId }, new { @class = "" })
+                    </td>
+                    <td>
+                        @item.Date.ToString(ELL.Models.Globals.Formats.DateFormatDDMMYYY)
                     </td>
                     <td>
                         @item.Amount.ToString("C")
