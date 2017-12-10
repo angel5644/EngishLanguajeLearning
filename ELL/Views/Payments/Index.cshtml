@@ -12,53 +12,56 @@
 </p>
 <div class="row">
     <div class="col-md-12">
-        <table class="table table-bordered">
-            <tr>
-                <th>
-                    Student
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Date)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Amount)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Type)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Description)
-                </th>
-                <th></th>
-            </tr>
-
-            @foreach (var item in Model)
-            {
+        <div class="table-responsive">
+            <table class="table table-bordered">
                 <tr>
-                    <td>
-                        @Html.ActionLink(item.Student.FullName, "Details", "Students", new { id = item.StudentId }, new { @class = "" })
-                    </td>
-                    <td>
-                        @item.Date.ToString(ELL.Models.Globals.Formats.DateFormatDDMMYYY)
-                    </td>
-                    <td>
-                        @item.Amount.ToString("C")
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Type)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Description)
-                    </td>
-                    <td>
-                        <a href="@Url.Action("Edit", "Payments", new { id = item.Id })" class="btn btn-default" title="Edit"><i class="fa fa-pencil-square-o fa-lg"></i></a>
-                        <a href="@Url.Action("Details", "Payments", new { id = item.Id })" class="btn btn-default" title="Details">   <i class="fa fa-list fa-lg"></i></a>
-                        <a href="@Url.Action("Delete", "Payments", new { id = item.Id })" class="btn btn-default" title="Delete">   <i class="fa fa-trash-o fa-lg"></i></a>                        
-                    </td>
+                    <th>
+                        Student
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Date)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Amount)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Type)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Description)
+                    </th>
+                    <th></th>
                 </tr>
-            }
 
-        </table>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.ActionLink(item.Student.FullName, "Details", "Students", new { id = item.StudentId }, new { @class = "" })
+                        </td>
+                        <td>
+                            @item.Date.ToString(ELL.Models.Globals.Formats.DateFormatDDMMYYY)
+                        </td>
+                        <td>
+                            @item.Amount.ToString("C")
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Type)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Description)
+                        </td>
+                        <td>
+                            <a href="@Url.Action("Edit", "Payments", new { id = item.Id })" class="btn btn-default" title="Edit"><i class="fa fa-pencil-square-o fa-lg"></i></a>
+                            <a href="@Url.Action("Details", "Payments", new { id = item.Id })" class="btn btn-default" title="Details">   <i class="fa fa-list fa-lg"></i></a>
+                            <a href="@Url.Action("Delete", "Payments", new { id = item.Id })" class="btn btn-default" title="Delete">   <i class="fa fa-trash-o fa-lg"></i></a>
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+
     </div>
 </div>
 

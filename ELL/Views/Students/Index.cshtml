@@ -12,79 +12,82 @@
 </p>
 <div class="row">
     <div class="col-md-12">
-        <table class="table table-bordered" id="students-table">
-            <thead>
-                <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.FullName)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.MonthlyPayment)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Email)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Picture)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.BirthDate)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Gender)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Phone)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.ReferenceNumber)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.ContactName)
-                    </th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-            {
+        <div class="table-responsive">
+            <table class="table table-bordered" id="students-table">
+                <thead>
                     <tr>
-                        <td>
-                            @item.FullName
-                        </td>
-                        <td>
-                            @item.MonthlyPayment.ToString("C")
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Email)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Picture)
-                        </td>
-                        <td>
-                            @item.BirthDate.Date.ToString(ELL.Models.Globals.Formats.DateFormatDDMMYYY)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Gender)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Phone)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.ReferenceNumber)
-                        </td>
-                        <td>
-                            @Html.ActionLink(item.ContactName, "Details", "EmergencyContacts", new { id = item.EmergencyContactId }, new { @class = "" })
-                        </td>
-                        <td>
-                            <a href="@Url.Action("Edit", "Students", new { id = item.Id })" class="btn btn-default" title="Edit"><i class="fa fa-pencil-square-o fa-lg"></i></a>
-                            <a href="@Url.Action("Details", "Students", new { id = item.Id })" class="btn btn-default" title="Details">   <i class="fa fa-list fa-lg"></i></a>
-                            <a href="@Url.Action("Delete", "Students", new { id = item.Id })" class="btn btn-default" title="Delete">   <i class="fa fa-trash-o fa-lg"></i></a>
-                        </td>
+                        <th>
+                            @Html.DisplayNameFor(model => model.FullName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.MonthlyPayment)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Email)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Picture)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.BirthDate)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Gender)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Phone)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ReferenceNumber)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ContactName)
+                        </th>
+                        <th></th>
                     </tr>
-                }
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @item.FullName
+                            </td>
+                            <td>
+                                @item.MonthlyPayment.ToString("C")
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Email)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Picture)
+                            </td>
+                            <td>
+                                @item.BirthDate.Date.ToString(ELL.Models.Globals.Formats.DateFormatDDMMYYY)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Gender)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Phone)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ReferenceNumber)
+                            </td>
+                            <td>
+                                @Html.ActionLink(item.ContactName, "Details", "EmergencyContacts", new { id = item.EmergencyContactId }, new { @class = "" })
+                            </td>
+                            <td>
+                                <a href="@Url.Action("Edit", "Students", new { id = item.Id })" class="btn btn-default" title="Edit"><i class="fa fa-pencil-square-o fa-lg"></i></a>
+                                <a href="@Url.Action("Details", "Students", new { id = item.Id })" class="btn btn-default" title="Details">   <i class="fa fa-list fa-lg"></i></a>
+                                <a href="@Url.Action("Delete", "Students", new { id = item.Id })" class="btn btn-default" title="Delete">   <i class="fa fa-trash-o fa-lg"></i></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        
     </div>
 </div>
 
