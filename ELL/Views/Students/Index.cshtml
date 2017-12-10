@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ELL.Models.Student>
+﻿@model IEnumerable<ELL.ViewModels.Students.StudentVM>
 
 @{
     ViewBag.Title = "Students";
@@ -16,10 +16,10 @@
             <thead>
                 <tr>
                     <th>
-                        @Html.DisplayNameFor(model => model.FirstName)
+                        @Html.DisplayNameFor(model => model.FullName)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.LastName)
+                        @Html.DisplayNameFor(model => model.MonthlyPayment)
                     </th>
                     <th>
                         @Html.DisplayNameFor(model => model.Email)
@@ -40,7 +40,7 @@
                         @Html.DisplayNameFor(model => model.ReferenceNumber)
                     </th>
                     <th>
-                        @Html.DisplayName("Parent")
+                        @Html.DisplayNameFor(model => model.ContactName)
                     </th>
                     <th></th>
                 </tr>
@@ -50,10 +50,10 @@
             {
                     <tr>
                         <td>
-                            @Html.DisplayFor(modelItem => item.FirstName)
+                            @item.FullName
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.LastName)
+                            @item.MonthlyPayment.ToString("C")
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Email)
@@ -74,7 +74,7 @@
                             @Html.DisplayFor(modelItem => item.ReferenceNumber)
                         </td>
                         <td>
-                            @Html.ActionLink(item.EmergencyContact.FullName, "Details", "EmergencyContacts", new { id = item.EmergencyContactId }, new { @class = "" })
+                            @Html.ActionLink(item.ContactName, "Details", "EmergencyContacts", new { id = item.EmergencyContactId }, new { @class = "" })
                         </td>
                         <td>
                             <a href="@Url.Action("Edit", "Students", new { id = item.Id })" class="btn btn-default" title="Edit"><i class="fa fa-pencil-square-o fa-lg"></i></a>

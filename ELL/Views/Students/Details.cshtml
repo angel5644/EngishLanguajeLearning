@@ -1,4 +1,4 @@
-﻿@model ELL.Models.Student
+﻿@model ELL.ViewModels.Students.StudentVM
 
 @{
     ViewBag.Title = "Details";
@@ -10,14 +10,6 @@
     <h4>Student</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Parent.FirstName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Parent.FirstName)
-        </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.FirstName)
         </dt>
@@ -32,6 +24,14 @@
 
         <dd>
             @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MonthlyPayment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MonthlyPayment)
         </dd>
 
         <dt>
@@ -80,6 +80,14 @@
 
         <dd>
             @Html.DisplayFor(model => model.ReferenceNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContactName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContactName)
         </dd>
 
     </dl>

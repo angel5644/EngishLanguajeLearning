@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Data.SqlClient;
 using ELL.Models;
 using ELL.DBContext;
 using System.Threading.Tasks;
-using ELL.Services;
+using System.Data.Entity;
 
 namespace ELL.Services
 {
@@ -22,5 +19,11 @@ namespace ELL.Services
 
         }
 
+        public async Task<IEnumerable<Student>> GetALlIncludeContact()
+        {
+            var students = this.dataContext.Students.Include(s => s.EmergencyContact);
+
+            return await students.ToListAsync();
+        }
     }
 }

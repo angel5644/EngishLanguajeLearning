@@ -180,6 +180,7 @@
     <Compile Include="Controllers\PaymentsController.cs" />
     <Compile Include="Controllers\StudentsController.cs" />
     <Compile Include="Core\AutoMapperWebConfiguration.cs" />
+    <Compile Include="Core\StudentProfile.cs" />
     <Compile Include="Core\PaymentProfile.cs" />
     <Compile Include="DbContext\ELLDBContext.cs" />
     <Compile Include="Enums\Enums.cs" />
@@ -209,11 +210,12 @@
     <Compile Include="Services\LoggerService.cs" />
     <Compile Include="Services\StudentService.cs" />
     <Compile Include="Services\PaymentService.cs" />
-    <Compile Include="Services\ParentService.cs" />
+    <Compile Include="Services\EmergencyContactService.cs" />
     <Compile Include="Services\ServiceBase.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\Payments\CreatePaymentVM.cs" />
     <Compile Include="ViewModels\Students\CreateStudentVM.cs" />
+    <Compile Include="ViewModels\Students\StudentVM.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\database\create_database_ell.sql" />
@@ -226,6 +228,7 @@
     <Content Include="images\logos\ell_logo.jpg" />
     <Content Include="Scripts\bootstrap-datepicker.js" />
     <Content Include="Scripts\payments\payments.js" />
+    <Content Include="Scripts\students\create-edit-students.js" />
     <Content Include="Scripts\students\students.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />

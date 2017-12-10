@@ -9,18 +9,40 @@ using System.Web;
 using System.Web.Mvc;
 using ELL.DBContext;
 using ELL.Models;
+using ELL.Services;
+using ELL.ViewModels.Students;
+using AutoMapper;
+using ELL.ViewModels.Payments;
 
 namespace ELL.Controllers
 {
-    public class StudentsController : Controller
+    public class StudentsController : ELLBaseController
     {
         private ELLDBContext db = new ELLDBContext();
+        private StudentService _studentService;
+        private EmergencyContactService _emergencyContactService;
+
+        public StudentsController()
+        {
+            _studentService = new StudentService();
+            _emergencyContactService = new EmergencyContactService();
+        }
 
         // GET: Students
         public async Task<ActionResult> Index()
         {
-            var students = db.Students.Include(s => s.EmergencyContact);
-            return View(await students.ToListAsync());
+            var students = await _studentService.GetALlIncludeContact();
+
+            List<StudentVM> studentsVM = new List<StudentVM>();
+            foreach (var student in students)
+            {
+                // Map from Student to StudentVM
+                StudentVM studentVM = AutoMapper.Mapper.Map<Student, StudentVM>(student);
+
+                studentsVM.Add(studentVM);
+            }
+
+            return View(studentsVM);
         }
 
         // GET: Students/Details/5
@@ -30,19 +52,28 @@ namespace ELL.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Student student = await db.Students.FindAsync(id);
+
+            Student student = await _studentService.Get(id.Value);
+
+            // Map from Student to StudentVM
+            StudentVM studentVM = AutoMapper.Mapper.Map<Student, StudentVM>(student);
+
             if (student == null)
             {
                 return HttpNotFound();
             }
-            return View(student);
+            return View(studentVM);
         }
 
         // GET: Students/Create
-        public ActionResult Create()
+        public async Task<ActionResult> Create()
         {
-            ViewBag.ParentId = new SelectList(db.EmergencyContacts, "Id", "FirstName");
-            return View();
+            CreateStudentVM model = new CreateStudentVM();
+
+            model.EmergencyContacts = await DropEmergerncyContacts();
+            model.BirthDate = DateTime.UtcNow;
+
+            return View(model);
         }
 
         // POST: Students/Create
@@ -50,17 +81,22 @@ namespace ELL.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,FirstName,LastName,Email,Picture,BirthDate,Gender,Phone,ReferenceNumber,ParentId")] Student student)
+        public async Task<ActionResult> Create(CreateStudentVM studentVM)
         {
             if (ModelState.IsValid)
             {
-                db.Students.Add(student);
-                await db.SaveChangesAsync();
+                Student newStudent = Mapper.Map<CreateStudentVM, Student>(studentVM);
+
+                await _studentService.Create(newStudent);
+
+                Success("Student was added successfully");
+
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ParentId = new SelectList(db.EmergencyContacts, "Id", "FirstName", student.EmergencyContactId);
-            return View(student);
+            studentVM.EmergencyContacts = await DropEmergerncyContacts();
+
+            return View(studentVM);
         }
 
         // GET: Students/Edit/5
@@ -70,12 +106,17 @@ namespace ELL.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Student student = await db.Students.FindAsync(id);
+            Student student = await _studentService.Get(id.Value);
+
+            // Map from entity to view model
+            CreateStudentVM studentVM = Mapper.Map<Student, CreateStudentVM>(student);
+
             if (student == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.ParentId = new SelectList(db.EmergencyContacts, "Id", "FirstName", student.EmergencyContactId);
+            studentVM.EmergencyContacts = await DropEmergerncyContacts();
+
             return View(student);
         }
 
@@ -84,16 +125,22 @@ namespace ELL.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,FirstName,LastName,Email,Picture,BirthDate,Gender,Phone,ReferenceNumber,ParentId")] Student student)
+        public async Task<ActionResult> Edit(CreateStudentVM studentVM)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(student).State = EntityState.Modified;
-                await db.SaveChangesAsync();
+                Student student = Mapper.Map<CreateStudentVM, Student>(studentVM);
+
+                await _studentService.Update(student);
+
+                Success("Student was updated successfully");
+
                 return RedirectToAction("Index");
             }
-            ViewBag.ParentId = new SelectList(db.EmergencyContacts, "Id", "FirstName", student.EmergencyContactId);
-            return View(student);
+
+            studentVM.EmergencyContacts = await DropEmergerncyContacts();
+
+            return View(studentVM);
         }
 
         // GET: Students/Delete/5
@@ -103,12 +150,16 @@ namespace ELL.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Student student = await db.Students.FindAsync(id);
+            Student student = await _studentService.Get(id.Value);
+
+            // Map from Student to StudentVM
+            StudentVM studentVM = AutoMapper.Mapper.Map<Student, StudentVM>(student);
+
             if (student == null)
             {
                 return HttpNotFound();
             }
-            return View(student);
+            return View(studentVM);
         }
 
         // POST: Students/Delete/5
@@ -116,10 +167,24 @@ namespace ELL.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            Student student = await db.Students.FindAsync(id);
-            db.Students.Remove(student);
-            await db.SaveChangesAsync();
+            Student student = await _studentService.Get(id);
+
+            await _studentService.Delete(student.Id);
+
+            Success("Student was deleted successfully");
+
             return RedirectToAction("Index");
+        }
+
+        private async Task<SelectList> DropEmergerncyContacts()
+        {
+            var contacts = (await _emergencyContactService.GetAll()).Select(s => new
+            {
+                Id = s.Id,
+                FullName = s.FullName
+            });
+
+            return new SelectList(contacts, "Id", "FullName");
         }
 
         protected override void Dispose(bool disposing)

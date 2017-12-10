@@ -1,46 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using ELL.Models;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Web;
 using static ELL.Enums.Enums;
 
-namespace ELL.Models
+namespace ELL.ViewModels.Students
 {
-    [Table("Student")]
-    public class Student : BaseEntity
+    public class StudentVM
     {
         /// <summary>
         /// The student id
         /// </summary>
-        [Required]
-        [Key]
         public int Id { get; set; }
 
-        [Required]
         [Display(Name = "First Name")]
-        [StringLength(255)]
-        [Index]
         public string FirstName { get; set; }
 
-        [Required]
         [Display(Name = "Last Name")]
-        [StringLength(255)]
-        [Index]
         public string LastName { get; set; }
 
         /// <summary>
         /// Monthly payment of the student
         /// </summary>
-        [Required]
         public decimal MonthlyPayment { get; set; }
 
         /// <summary>
         /// Student email
         /// </summary>
-        [Index(IsUnique = true)]
-        [StringLength(255)]
         public string Email { get; set; }
 
         /// <summary>
@@ -63,29 +49,30 @@ namespace ELL.Models
         /// <summary>
         /// The phone number of the student or the emergency contact
         /// </summary>
-        [Required]
-        [StringLength(50)]
         public string Phone { get; set; }
 
         /// <summary>
         /// A unique reference number that will be asigned to every student
         /// </summary>
-        [Required]
-        [Index(IsUnique = true)]
         [Display(Name = "Reference Number")]
         public int ReferenceNumber { get; set; }
 
         /// <summary>
         /// The contact id (foreing key to contact)
         /// </summary>
-        [Required]
         [Display(Name = "Emergency Contact")]
         public int EmergencyContactId { get; set; }
 
-        [ForeignKey("EmergencyContactId")]
-        public virtual EmergencyContact EmergencyContact { get; set; }
+        //public EmergencyContact EmergencyContact { get; set; }
+
+        /// <summary>
+        /// Emergency Contact of the student full name
+        /// </summary>
+        [Display(Name = "Contact")]
+        public string ContactName { get; set; }
 
         [NotMapped]
+        [Display(Name = "Name")]
         public string FullName
         {
             get { return this.FirstName + " " + this.LastName; }

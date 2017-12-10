@@ -15,11 +15,11 @@ namespace ELL.Controllers
 {
     public class EmergencyContactsController : ELLBaseController
     {
-        private ParentService _parentService;
+        private EmergencyContactService _parentService;
 
         public EmergencyContactsController()
         {
-            _parentService = new ParentService();
+            _parentService = new EmergencyContactService();
         }
 
         // GET: EmergencyContacts

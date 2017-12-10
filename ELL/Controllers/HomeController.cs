@@ -11,10 +11,10 @@ namespace ELL.Controllers
 {
     public class HomeController : Controller
     {
-        private ParentService _parentService;
+        private EmergencyContactService _parentService;
         public HomeController()
         {
-            _parentService = new ParentService();
+            _parentService = new EmergencyContactService();
         }
 
         public ActionResult Index()

@@ -16,6 +16,7 @@ namespace ELL.Core
             {
                 // Add profiles
                 cfg.AddProfile(new PaymentProfile());
+                cfg.AddProfile(new StudentProfile());
                 //cfg.AddProfile(new PostProfile());
             });
         }

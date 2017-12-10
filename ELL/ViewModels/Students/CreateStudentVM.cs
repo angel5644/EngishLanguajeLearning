@@ -34,6 +34,9 @@ namespace ELL.ViewModels.Students
         /// <summary>
         /// Student email
         /// </summary>
+        [StringLength(255)]
+        [DataType(DataType.EmailAddress)]
+        [EmailAddress]
         public string Email { get; set; }
 
         /// <summary>
@@ -45,6 +48,7 @@ namespace ELL.ViewModels.Students
         /// The date of birth of the student
         /// </summary>
         [Display(Name = "Birth Date")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime BirthDate { get; set; }
 
         /// <summary>
@@ -71,7 +75,7 @@ namespace ELL.ViewModels.Students
         /// </summary>
         [Required]
         [Display(Name = "Emergency Contact")]
-        public int ParentId { get; set; }
+        public int EmergencyContactId { get; set; }
 
         public SelectList EmergencyContacts { get; set; }
 
