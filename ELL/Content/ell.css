@@ -4,17 +4,17 @@
 
 .navbar-brand>img {
   /*height: 100%;*/
-  height:60px;
-  padding: 10px;
+  height:50px;
+  /*padding: 10px;*/
   width: auto;
 }
 
 .navbar-brand.text {
-  line-height: 60px;
+  line-height: 50px;
 }
 
 .navbar-nav.navbar-right > li > a {
-   line-height: 60px;
+   line-height: 50px;
 }
 
 /* Mobile */
