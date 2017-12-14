@@ -1,6 +1,11 @@
 ﻿$(document).ready(function () {
     initDateFields();
 
+    //$("#EmergencyContactId").select2();
+    $("#EmergencyContactId").select2({
+        width: '50%',
+    });
+    
 });
 
 function initDateFields() {
