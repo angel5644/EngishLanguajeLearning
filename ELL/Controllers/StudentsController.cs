@@ -117,7 +117,7 @@ namespace ELL.Controllers
             }
             studentVM.EmergencyContacts = await DropEmergerncyContacts();
 
-            return View(student);
+            return View(studentVM);
         }
 
         // POST: Students/Edit/5
