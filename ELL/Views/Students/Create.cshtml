@@ -7,10 +7,10 @@
 <h2>Register</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Student</h4>
         <hr />
@@ -106,6 +106,10 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+
+@section Styles{
+    @Styles.Render("~/Content/bootstrap-datepicker3.css")
+}
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

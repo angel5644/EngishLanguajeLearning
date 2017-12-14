@@ -10,6 +10,7 @@ namespace ELL.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
+            //AutomaticMigrationDataLossAllowed = true; // Data might get lost using this option
             ContextKey = "ELL.DBContext.ELLDBContext";
         }
 
