@@ -30,5 +30,13 @@ namespace ELL.Services
             return await payments.ToListAsync();
         }
 
+        public async Task<IEnumerable<Payment>> GetByStudentId(int studentId)
+        {
+            var payments = await this.dataContext.Payments.Include(p => p.Student)
+                                                         .Where(p => p.StudentId == studentId)
+                                                         .ToListAsync();
+
+            return payments;
+        }
     }
 }

@@ -18,14 +18,15 @@ namespace ELL.Controllers
 {
     public class StudentsController : ELLBaseController
     {
-        private ELLDBContext db = new ELLDBContext();
         private StudentService _studentService;
         private EmergencyContactService _emergencyContactService;
+        private PaymentService _paymentService;
 
         public StudentsController()
         {
             _studentService = new StudentService();
             _emergencyContactService = new EmergencyContactService();
+            _paymentService = new PaymentService();
         }
 
         // GET: Students
@@ -176,6 +177,29 @@ namespace ELL.Controllers
             return RedirectToAction("Index");
         }
 
+        /// <summary>
+        /// Get the monthly payment of a student
+        /// </summary>
+        /// <param name="studentId"></param>
+        /// <returns></returns>
+        public async Task<JsonResult> GetMonthlyPayment(int? studentId)
+        {
+            // Get monthly payment of the student
+            decimal monthlyPayment = 0;
+
+            if (studentId.HasValue)
+            {
+                var student = await _studentService.Get(studentId.Value);
+
+                if (student != null)
+                {
+                    monthlyPayment = student.MonthlyPayment;
+                }
+            }
+
+            return Json(monthlyPayment, JsonRequestBehavior.AllowGet);
+        }
+
         private async Task<SelectList> DropEmergerncyContacts()
         {
             var contacts = (await _emergencyContactService.GetAll()).Select(s => new
@@ -189,10 +213,7 @@ namespace ELL.Controllers
 
         protected override void Dispose(bool disposing)
         {
-            if (disposing)
-            {
-                db.Dispose();
-            }
+            
             base.Dispose(disposing);
         }
     }

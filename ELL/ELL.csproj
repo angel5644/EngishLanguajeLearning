@@ -240,7 +240,7 @@
     <Content Include="images\logos\ell_logo_transparent_50.png" />
     <Content Include="Scripts\bootstrap-datepicker.js" />
     <Content Include="Scripts\dataTables.bootstrap.min.js" />
-    <Content Include="Scripts\payments\payments.js" />
+    <Content Include="Scripts\payments\create-edit-payments.js" />
     <Content Include="Scripts\select2.min.js" />
     <Content Include="Scripts\students\create-edit-students.js" />
     <Content Include="Scripts\students\students.js" />

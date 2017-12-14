@@ -39,7 +39,7 @@ namespace ELL.Models
         /// <summary>
         /// Student email
         /// </summary>
-        [Index(IsUnique = true)]
+        [Index]
         [StringLength(255)]
         public string Email { get; set; }
 
