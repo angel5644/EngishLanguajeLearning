@@ -227,6 +227,7 @@
     <Content Include="Content\bootstrap-datepicker3.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\buttons.dataTables.min.css" />
     <Content Include="Content\dataTables.bootstrap.min.css" />
     <Content Include="Content\ell.css" />
     <Content Include="Content\responsive.dataTables.min.css" />
@@ -239,8 +240,14 @@
     <Content Include="images\logos\ell_logo_transparent.png" />
     <Content Include="images\logos\ell_logo_transparent_50.png" />
     <Content Include="Scripts\bootstrap-datepicker.js" />
+    <Content Include="Scripts\buttons.flash.min.js" />
+    <Content Include="Scripts\buttons.html5.min.js" />
+    <Content Include="Scripts\buttons.print.min.js" />
     <Content Include="Scripts\dataTables.bootstrap.min.js" />
+    <Content Include="Scripts\dataTables.buttons.min.js" />
     <Content Include="Scripts\payments\create-edit-payments.js" />
+    <Content Include="Scripts\payments\payments.js" />
+    <Content Include="Scripts\pdfmake.min.js" />
     <Content Include="Scripts\select2.min.js" />
     <Content Include="Scripts\students\create-edit-students.js" />
     <Content Include="Scripts\students\students.js" />
@@ -295,6 +302,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\vfs_fonts.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
