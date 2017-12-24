@@ -290,6 +290,8 @@
     <Content Include="Content\AwesomeFonts\scss\_screen-reader.scss" />
     <Content Include="Content\AwesomeFonts\scss\_stacked.scss" />
     <Content Include="Content\AwesomeFonts\scss\_variables.scss" />
+    <None Include="Properties\PublishProfiles\Default Settings.pubxml" />
+    <None Include="Properties\PublishProfiles\EnglishColimaFTP1.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -304,7 +306,9 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\vfs_fonts.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -354,6 +358,7 @@
     <Content Include="Views\Students\Edit.cshtml" />
     <Content Include="Views\Students\Index.cshtml" />
     <Content Include="Views\Shared\_Alerts.cshtml" />
+    <Content Include="Views\Home\Error.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201712061441579_InitialCreate.resx">
