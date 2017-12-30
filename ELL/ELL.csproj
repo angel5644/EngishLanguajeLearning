@@ -245,6 +245,7 @@
     <Content Include="Scripts\buttons.print.min.js" />
     <Content Include="Scripts\dataTables.bootstrap.min.js" />
     <Content Include="Scripts\dataTables.buttons.min.js" />
+    <Content Include="Scripts\home\contact.js" />
     <Content Include="Scripts\payments\create-edit-payments.js" />
     <Content Include="Scripts\payments\payments.js" />
     <Content Include="Scripts\pdfmake.min.js" />
@@ -359,6 +360,8 @@
     <Content Include="Views\Students\Index.cshtml" />
     <Content Include="Views\Shared\_Alerts.cshtml" />
     <Content Include="Views\Home\Error.cshtml" />
+    <Content Include="Views\Home\EnglishResources.cshtml" />
+    <Content Include="Views\Home\Courses.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201712061441579_InitialCreate.resx">
