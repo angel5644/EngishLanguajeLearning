@@ -25,7 +25,13 @@ namespace ELL
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/ell.css"
+                      //"~/Content/scss/ell-bundled.css"
+                      ));
+
+            //bundles.Add(new StyleBundle("~/Content/ell-base").Include(
+            //          "~/Content/ell.css",
+            //          "~/Content/scss/ell-bundled.css"));
         }
     }
 }

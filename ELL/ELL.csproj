@@ -231,6 +231,9 @@
     <Content Include="Content\dataTables.bootstrap.min.css" />
     <Content Include="Content\ell.css" />
     <Content Include="Content\responsive.dataTables.min.css" />
+    <Content Include="Content\scss\ell-bundled.css">
+      <DependentUpon>ell-bundled.scss</DependentUpon>
+    </Content>
     <Content Include="Content\select2-bootstrap.css" />
     <Content Include="Content\select2-spinner.gif" />
     <Content Include="Content\select2.css" />
@@ -291,6 +294,10 @@
     <Content Include="Content\AwesomeFonts\scss\_screen-reader.scss" />
     <Content Include="Content\AwesomeFonts\scss\_stacked.scss" />
     <Content Include="Content\AwesomeFonts\scss\_variables.scss" />
+    <Content Include="Content\scss\ell-bundled.scss" />
+    <Content Include="Content\scss\_mixins.scss" />
+    <Content Include="Content\scss\_menu.scss" />
+    <Content Include="Content\scss\_variables.scss" />
     <None Include="Properties\PublishProfiles\Default Settings.pubxml" />
     <None Include="Properties\PublishProfiles\EnglishColimaFTP1.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
