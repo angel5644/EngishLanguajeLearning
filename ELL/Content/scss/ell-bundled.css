@@ -1,0 +1,27 @@
+/* -[*** Override bootstrap properties *** */
+.nav > li > a:hover, .nav > li > a:focus {
+  text-decoration: none;
+  background-color: #7e7e7e !important; }
+
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+  color: #ffffff;
+  text-decoration: none;
+  /*background-color: #428bca;
+  /*background-color: #939393;*/
+  background-color: #7e7e7e !important; }
+
+.nav .caret {
+  border-top-color: #dfdfdf;
+  border-bottom-color: #dfdfdf; }
+
+.nav a:hover .caret {
+  border-top-color: #dfdfdf;
+  border-bottom-color: #dfdfdf; }
+
+/* -]***  *** */
+.navbar-gray {
+  /*background-color: #939393;*/
+  background-color: #7e7e7e !important;
+  color: #fff; }
+
+/*# sourceMappingURL=ell-bundled.css.map */

@@ -231,6 +231,9 @@
     <Content Include="Content\dataTables.bootstrap.min.css" />
     <Content Include="Content\ell.css" />
     <Content Include="Content\responsive.dataTables.min.css" />
+    <Content Include="Content\scss\ell-bundled.css">
+      <DependentUpon>ell-bundled.scss</DependentUpon>
+    </Content>
     <Content Include="Content\select2-bootstrap.css" />
     <Content Include="Content\select2-spinner.gif" />
     <Content Include="Content\select2.css" />
@@ -245,6 +248,7 @@
     <Content Include="Scripts\buttons.print.min.js" />
     <Content Include="Scripts\dataTables.bootstrap.min.js" />
     <Content Include="Scripts\dataTables.buttons.min.js" />
+    <Content Include="Scripts\home\contact.js" />
     <Content Include="Scripts\payments\create-edit-payments.js" />
     <Content Include="Scripts\payments\payments.js" />
     <Content Include="Scripts\pdfmake.min.js" />
@@ -290,6 +294,12 @@
     <Content Include="Content\AwesomeFonts\scss\_screen-reader.scss" />
     <Content Include="Content\AwesomeFonts\scss\_stacked.scss" />
     <Content Include="Content\AwesomeFonts\scss\_variables.scss" />
+    <Content Include="Content\scss\ell-bundled.scss" />
+    <Content Include="Content\scss\_mixins.scss" />
+    <Content Include="Content\scss\_menu.scss" />
+    <Content Include="Content\scss\_variables.scss" />
+    <None Include="Properties\PublishProfiles\Default Settings.pubxml" />
+    <None Include="Properties\PublishProfiles\EnglishColimaFTP1.pubxml" />
     <None Include="Properties\PublishProfiles\FTP4ELLProfile.pubxml" />
     <None Include="Properties\PublishProfiles\FTP5ELLProfile.pubxml" />
     <None Include="Properties\PublishProfiles\FTPELLProfile.pubxml" />
@@ -308,7 +318,9 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\vfs_fonts.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -358,6 +370,9 @@
     <Content Include="Views\Students\Edit.cshtml" />
     <Content Include="Views\Students\Index.cshtml" />
     <Content Include="Views\Shared\_Alerts.cshtml" />
+    <Content Include="Views\Home\Error.cshtml" />
+    <Content Include="Views\Home\EnglishResources.cshtml" />
+    <Content Include="Views\Home\Courses.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201712061441579_InitialCreate.resx">

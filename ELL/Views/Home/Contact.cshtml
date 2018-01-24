@@ -1,17 +1,35 @@
 ﻿@{
     ViewBag.Title = "Contact";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+<h2>@ViewBag.Title</h2>
 
 <address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
+    Av. Constitución #1649<br />
+    Planta Alta. Colima, Col.<br />
+    
+    <i class="fa fa-whatsapp" aria-hidden="true"></i> <a href="tel://+5213121507055">+52 3121507055</a> <i class="fa fa-facebook-official" aria-hidden="true"></i> <a href="https://www.facebook.com/EnglishColima/">@@englishcolima</a>
+
 </address>
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+<div class="row">
+    <div class="col-md-12">
+        <div id="map"></div>
+    </div>
+</div>
+
+<br />
+<strong>Support:</strong>   <a href="mailto:englishlanguagecolima@gmail.com ">englishlanguagecolima@gmail.com </a><br />
+
+@section Styles{
+    <style type="text/css">
+        #map {
+            height: 400px;
+            width: 100%;
+       }
+    </style>
+}
+
+@section Scripts{
+    @Scripts.Render("~/Scripts/home/contact.js")
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDG7B8L0JJ-VnXOEEWK7wnq8iU5F-jMRuU&callback=initMap"></script>
+}
