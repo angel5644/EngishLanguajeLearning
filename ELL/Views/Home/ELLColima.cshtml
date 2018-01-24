@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Bienvenido</h1>
+    <p class="lead">English Made Easy!</p>
+    <div class="row">
+        <div class="col-md-4 col-sm-4"><p><a href="@Url.Action("Index","Home")" class="btn btn-primary btn-lg">Estudiantes &raquo;</a></p></div>
+        <div class="col-md-4 col-sm-4"><p><a href="@Url.Action("Index","Home")" class="btn btn-primary btn-lg">Padres &raquo;</a></p></div>
+        <div class="col-md-4 col-sm-4"><p><a href="@Url.Action("Index","Home")" class="btn btn-primary btn-lg">Maestros &raquo;</a></p></div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h3>Filosofía ELL</h3>
+        <p>
+            Simplicidad y Facilidad. Nuestras clases son personalizadas, a tu ritmo, y con un máximo de 6 alumnos por clase. Tema por tema y paso por paso, tu aprendizaje está garantizado. Nuestro enfoque está en el entendimiento real del idioma para desarrollar habilidades lectoras y de escritura. Vocabulario y conversaciones son habilidades que se practican en cada clase.
+        </p>
+    </div>
+    <div class="col-md-4">
+        <a href="@Url.Action("Index","Home")"><h3>Cursos en Línea</h3></a>
+        <p>English Language Learning ofrece cursos 100% en línea disponibles para todos los niveles.</p>
+        <p><a class="btn btn-default" href="@Url.Action("Index","Home")">Ir &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <a href="@Url.Action("Index","Home")"><h3>Material Gratis</h3></a>
+        <p>Encuentra aquí material para el aprendizaje de inglés. Adicionalmente contamos con material para maestros de inglés. Todo el material en esta sección es gratuito.</p>
+        <p><a class="btn btn-default" href="@Url.Action("Index","Home")">Ir &raquo;</a></p>
+    </div>
+</div>
+

@@ -239,6 +239,10 @@
     <Content Include="Content\select2.css" />
     <Content Include="Content\select2.png" />
     <Content Include="Content\select2x2.png" />
+    <Content Include="images\carousel\image_1.jpg" />
+    <Content Include="images\carousel\image_2.jpg" />
+    <Content Include="images\carousel\image_3.jpg" />
+    <Content Include="images\carousel\image_4.jpg" />
     <Content Include="images\logos\ell_logo.jpg" />
     <Content Include="images\logos\ell_logo_transparent.png" />
     <Content Include="images\logos\ell_logo_transparent_50.png" />
@@ -373,6 +377,7 @@
     <Content Include="Views\Home\Error.cshtml" />
     <Content Include="Views\Home\EnglishResources.cshtml" />
     <Content Include="Views\Home\Courses.cshtml" />
+    <Content Include="Views\Home\ELLColima.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201712061441579_InitialCreate.resx">
