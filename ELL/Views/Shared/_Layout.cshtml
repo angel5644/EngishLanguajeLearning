@@ -11,7 +11,6 @@
     @RenderSection("styles", required: false)
 </head>
 <body>
-
     <nav class="navbar navbar-gray navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -28,12 +27,13 @@
             </div>
             <div id="navbar6" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
-                    @*<li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
-                    <li>@Html.ActionLink("Cursos", "Courses", "Home")</li>
-                    <li>@Html.ActionLink("Recursos", "EnglishResources", "Home")</li>
-                    <li class=""><a class="btn no-opacity" href="https://translate.google.com/manager/website/?hl=yi" title="View in English"><i class="fa fa-flag-o"></i></a></li>
-                    @*<li>@Html.ActionLink("About", "About", "Home")</li>*@
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("ELL Colima", "ELLColima", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Courses", "Courses", "Home")</li>
+                    <li>@Html.ActionLink("Resources", "EnglishResources", "Home")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li class=""><a class="btn no-opacity" href="https://translate.google.com/manager/website/?hl=yi" title="Ver en Español "><i class="fa fa-flag-o"></i></a></li>
                     <li class="dropdown admin">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Manage <span class="caret"></span></a>
                         <ul class="dropdown-menu">

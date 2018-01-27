@@ -239,10 +239,10 @@
     <Content Include="Content\select2.css" />
     <Content Include="Content\select2.png" />
     <Content Include="Content\select2x2.png" />
-    <Content Include="images\carousel\image_1.jpg" />
-    <Content Include="images\carousel\image_2.jpg" />
-    <Content Include="images\carousel\image_3.jpg" />
-    <Content Include="images\carousel\image_4.jpg" />
+    <Content Include="images\carousel\image_1.png" />
+    <Content Include="images\carousel\image_2.png" />
+    <Content Include="images\carousel\image_3.png" />
+    <Content Include="images\carousel\image_4.png" />
     <Content Include="images\logos\ell_logo.jpg" />
     <Content Include="images\logos\ell_logo_transparent.png" />
     <Content Include="images\logos\ell_logo_transparent_50.png" />
